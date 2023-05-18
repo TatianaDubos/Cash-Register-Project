@@ -1,0 +1,122 @@
+﻿<Window x:Class="GuichetAutomatique.CreerCompte"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuichetAutomatique"
+        mc:Ignorable="d"
+        Title="Nouveau compte"  Height="600" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="btnBack"  BorderBrush="{x:Null}" Width="60" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,1" Click="btnBack_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Fenetres/return.png"/>
+            </Button.Background>
+        </Button>
+
+        <StackPanel  Grid.Column="1" Grid.Row="1">
+            <Label Content="NOUVEAU COMPTE" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="22" HorizontalContentAlignment="Center" Width="550" Margin="0,0,0,30">
+                <Label.Background>
+                    <SolidColorBrush Color="DarkOrange" Opacity="0.5"/>
+                </Label.Background>
+                <Label.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"></Setter>
+                    </Style>
+                </Label.Resources>
+            </Label>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="100,10,0,20">
+                <Label x:Name="lblClient" Width="50" Visibility="Hidden">
+                    <Label.Background>
+                        <ImageBrush ImageSource="/Fenetres/actif.png"/>
+                    </Label.Background>
+                </Label>
+                <ComboBox x:Name="ComboClient" Width="300"  Height="40" FontSize="20" GotFocus="Control_GotFocus" LostFocus="Control_LostFocus" ItemsSource="{Binding}" SelectedValuePath="ID" DisplayMemberPath="Aff" SelectionChanged="ComboClient_SelectionChanged"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="100,20,0,10">
+                <Label x:Name="lblType" Width="50" Visibility="Hidden">
+                    <Label.Background>
+                        <ImageBrush ImageSource="/Fenetres/actif.png"/>
+                    </Label.Background>
+                </Label>
+                <ComboBox x:Name="ComboType" Width="300"  Height="40" FontSize="20" SelectedValuePath="Content" GotFocus="Control_GotFocus" LostFocus="Control_LostFocus" SelectionChanged="ComboType_SelectionChanged">
+                    <ComboBoxItem>Chèque</ComboBoxItem>
+                    <ComboBoxItem>Épargne</ComboBoxItem>
+                    <ComboBoxItem>Hypothécaire</ComboBoxItem>
+                    <ComboBoxItem>Marge de crédit</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel x:Name="PanelHypotheque" Orientation="Horizontal" HorizontalAlignment="left" Margin="100,10,0,10"  Visibility="Hidden">
+                <Label x:Name="lblMontant" Width="50"  Visibility="Hidden">
+                    <Label.Background>
+                        <ImageBrush ImageSource="/Fenetres/actif.png"/>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="lblMontantText" Padding="5,0,5,0" FontSize="14" FontFamily="Century Gothic" Content="Montant de l'hypothèque : " VerticalContentAlignment="Center" HorizontalContentAlignment="Right" ></Label>
+                <TextBox x:Name="txtMontant" FontSize="20" FontFamily="Century Gothic" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  GotFocus="Control_GotFocus" LostFocus="Control_LostFocus"></TextBox>
+            </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button x:Name="btnConfirm" Width="100" Height="60" Content="CONFIRMER" Margin="5,5,5,5" Click="btnConfirm_Click">
+                    <Button.Background>
+                        <SolidColorBrush Color="LimeGreen" Opacity="0.5"/>
+                    </Button.Background>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="btnAnnul" Width="100" Height="60" Content="ANNULER" Margin="5,5,5,5" Focusable="False" Click="btnAnnul_Click">
+                    <Button.Background>
+                        <SolidColorBrush Color="Yellow" Opacity="0.5"/>
+                    </Button.Background>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="btnCancel" Width="100" Height="60" Content="CANCELLER" Margin="5,5,5,5" Click="btnCancel_Click">
+                    <Button.Background>
+                        <SolidColorBrush Color="red" Opacity="0.5"/>
+                    </Button.Background>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+            <Label x:Name="lblErreur" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Foreground="Red" FontSize="14" FontFamily="Century Gothic" Margin="0,20,0,0" Width="600" HorizontalContentAlignment="Center" Padding="0,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel x:Name="PanelList"  Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden">
+            <Label x:Name="lblList" Content="Comptes du client" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="-50,50,0,0"/>
+            <ListBox x:Name="ListComptes" Height="auto" Margin="-50,5,5,5" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" FontFamily="century gothic" FontSize="12" ItemsSource="{Binding}" DisplayMemberPath="Aff">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>

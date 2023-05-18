@@ -1,0 +1,184 @@
+﻿<Window x:Class="GuichetAutomatique.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuichetAutomatique"
+        mc:Ignorable="d"
+        Title="Login" Height="600" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/Fenetres/bank.jpg" Margin="0,0,34,29">
+        </Image>
+        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label x:Name="lblIDtxt" Content="Identifiez-vous" Padding="2,2,2,2" HorizontalAlignment="Right" Visibility="Hidden">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                </Label.Foreground>
+            </Label>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Label x:Name="lblID" Width="70" Height="50" Visibility="Hidden">
+                    <Label.Background>
+                        <ImageBrush ImageSource="/Fenetres/actif.png"/>
+                    </Label.Background>
+                </Label>
+                <TextBox x:Name="txtID" Width="200" FontSize="20" Height="40" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" GotFocus="textbox_GotFocus" LostFocus="textbox_LostFocus" Text="ID" Foreground="LightGray" MaxLength="3" TextChanged="txtID_TextChanged" />
+            </StackPanel>
+            <Label x:Name="lblNIPtxt" Content="Saisissez votre NIP" Padding="2,2,2,2" HorizontalAlignment="Right" Visibility="Hidden">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                </Label.Foreground>
+            </Label>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="lblNIP" Width="70" Height="50" Visibility="Hidden">
+                    <Label.Background>
+                        <ImageBrush ImageSource="/Fenetres/actif.png"/>
+                    </Label.Background>
+                </Label>
+                <PasswordBox x:Name="txtNIP" Width="200" FontSize="35" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="4" PasswordChar="*" GotFocus="textbox_GotFocus" LostFocus="textbox_LostFocus" KeyDown="Passwordbox_KeyDown" />
+            </StackPanel>
+        </StackPanel>
+        <WrapPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="360">
+            <Button x:Name="btn1" Width="70" Height="60" Margin="5,5,5,5" Content="1" FontSize="24" Focusable="False" Click="Clavier_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn2" Width="70" Height="60" Margin="5,5,5,5" Content="2" FontSize="24" Focusable="False" Click="Clavier_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn3" Width="70" Height="60" Margin="5,5,5,5" Content="3" FontSize="24" Focusable="False" Click="Clavier_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btnConfirm" Width="100" Height="60" Content="CONFIRMER" Margin="5,5,5,5" Click="btnConfirm_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="LimeGreen" Opacity="0.5"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn4" Width="70" Height="60" Margin="5,5,5,5" Content="4" FontSize="24" Focusable="False" Click="Clavier_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn5" Width="70" Height="60" Margin="5,5,5,5" Content="5" FontSize="24" Focusable="False" Click="Clavier_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn6" Width="70" Height="60" Margin="5,5,5,5" Content="6" FontSize="24" Focusable="False" Click="Clavier_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btnAnnul" Width="100" Height="60" Content="ANNULER" Margin="5,5,5,5" Focusable="False" Click="btnAnnul_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="Yellow" Opacity="0.5"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn7" Width="70" Height="60" Margin="5,5,5,5" Content="7" FontSize="24" Focusable="False" Click="Clavier_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn8" Width="70" Height="60" Margin="5,5,5,5" Content="8" FontSize="24" Focusable="False" Click="Clavier_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn9" Width="70" Height="60" Margin="5,5,5,5" Content="9" FontSize="24" Focusable="False" Click="Clavier_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btnCancel" Width="100" Height="60" Content="CANCELLER" Margin="5,5,5,5" Click="btnCancel_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="red" Opacity="0.5"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btn0" Width="70" Height="60" Margin="85,5,5,5" Content="0" FontSize="24" Focusable="False" Click="Clavier_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                </Button.Background>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </WrapPanel>
+        <Label x:Name="lblErreur" Content="" Grid.ColumnSpan="3" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Foreground="Red" FontSize="14" FontFamily="Century Gothic" HorizontalContentAlignment="Center" Margin="20,0,0,0" VerticalContentAlignment="Center"/>
+    </Grid>
+</Window>

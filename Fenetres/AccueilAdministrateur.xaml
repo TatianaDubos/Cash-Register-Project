@@ -1,0 +1,115 @@
+﻿<Window x:Class="GuichetAutomatique.AccueilAdministrateur"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuichetAutomatique"
+        mc:Ignorable="d"
+        Title="Accueil"  Height="600" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel  Grid.Column="1" >
+            <Label x:Name="lblNom" FontFamily="century gothic" FontSize="14" Content="Bonjour "  HorizontalContentAlignment="Center" Margin="0,5,0,0" />
+            <Image Source="/Fenetres/bank.jpg" Height="300" Margin="0,100,0,0"/>
+            
+            <StackPanel Orientation="Horizontal" Margin="0,60,0,0"  HorizontalAlignment="Center">
+                <Button x:Name="btnFermer" Content="FERMER LE GUICHET"  Height="50" FontSize="18" FontFamily="Century Gothic" Width="240" Click="btnFermer_Click" Margin="0,0,15,0">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Background>
+                        <SolidColorBrush Color="LightGray" Opacity="0.4"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnQuitter" Content="QUITTER"  Height="50" FontSize="18" FontFamily="Century Gothic" Width="120" Click="btnQuitter_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Background>
+                        <SolidColorBrush Color="LightGray" Opacity="0.4"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+            
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" VerticalAlignment="Center" >
+            <Button x:Name="btnClient" Margin="5,30,5,30" Height="120" FontSize="18" FontFamily="Century Gothic" Content="CRÉER UN CLIENT" Click="btnClient_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <SolidColorBrush Color="Red" Opacity="0.4"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnCompte" Margin="5,30,5,30" Height="120" FontSize="18" FontFamily="Century Gothic" Content="CRÉER UN COMPTE" Click="btnCompte_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <SolidColorBrush Color="OrangeRed" Opacity="0.4"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnTransaction" Margin="5,30,5,30" Height="120" Click="btnTransaction_Click" >
+                <TextBlock Text="CONSULTER LES TRANSACTIONS D'UN COMPTE" TextWrapping="Wrap" TextAlignment="Center"  FontSize="18" FontFamily="Century Gothic"/>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <SolidColorBrush Color="deeppink" Opacity="0.4"/>
+                </Button.Background>
+            </Button>
+
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="3" VerticalAlignment="Center">
+            <Button x:Name="btnAcces" Margin="5,30,5,30" Height="120" Click="btnAcces_Click" >
+                <TextBlock Text="BLOQUER OU DÉBLOQUER l’ACCÈS À UN CLIENT" TextWrapping="Wrap" TextAlignment="Center"  FontSize="18" FontFamily="Century Gothic"/>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <SolidColorBrush Color="Violet" Opacity="0.4"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnArgent" Margin="5,30,5,30" Height="120" Click="btnArgent_Click">
+                <TextBlock Text="AJOUTER DE L'ARGENT PAPIER" TextWrapping="Wrap" TextAlignment="Center"  FontSize="18" FontFamily="Century Gothic"/>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <SolidColorBrush Color="BlueViolet" Opacity="0.4"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnInteret" Margin="5,30,5,30" Height="120" FontSize="18" FontFamily="Century Gothic" Click="btnInteret_Click">
+                <TextBlock Text="PAYER LES INTÉRÊT (1%) AUX COMPTES ÉPARGNE" TextWrapping="Wrap" TextAlignment="Center"  FontSize="18" FontFamily="Century Gothic"/>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <SolidColorBrush Color="CornflowerBlue" Opacity="0.4"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
